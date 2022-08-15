@@ -7,6 +7,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import com.academicbot.pojo.Designation;
 import com.academicbot.pojo.User;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.sql.SQLException;
 
@@ -15,7 +18,6 @@ public class UserTesting {
     static UserDao userDao;
     @BeforeAll
     static void init() {
-        Main.initApplicationContext();
         userDao = (UserDao) Main.getApplicationContext().getBean("userDao");
     }
     @Test
