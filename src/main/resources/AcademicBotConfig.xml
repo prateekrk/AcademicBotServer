@@ -3,4 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean class="com.academicbot.dao.UserDao.UserDaoImpl" id="userDao"/>
+<!--    <bean class="com.academicbot.dao.RegisterDao.RegisterDaoImpl" id = "registerDao"/>-->
+<!--    <bean class="com.academicbot.dao.StudentDao.StudentDaoImpl" id = "studentDao"/>-->
 </beans>

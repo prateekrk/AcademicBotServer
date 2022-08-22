@@ -22,7 +22,7 @@ public class RegisterDaoImpl implements RegisterDao{
     public boolean registerStudent(Student student, String userName, String password) throws SQLException {
         String query = "INSERT INTO STUDENT(USERNAME, USN, DATE_OF_BIRTH, FIRST_NAME, LAST_NAME, MIDDLE_NAME) VALUES(?, ? ,?, ?, ?, ?, ?)";
 
-        userDao.createUser(userName, password, Designation.STUDENT);
+//        userDao.createUser(userName, password, Designation.STUDENT);
 
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, student.getUserName());
@@ -41,7 +41,7 @@ public class RegisterDaoImpl implements RegisterDao{
         String query = "INSERT INTO FACULTY(USERNAME, FACULTY_NAME, FACUTLY_ID, DATE_OF_JOINING, DATE_OF_RELEASE, DEPARTMENT) " +
                 "VALUES( ?, ?, ?, ?, ?, ?,)";
 
-        userDao.createUser(userName, password, faculty.getDesignation());
+//        userDao.createUser(userName, password, faculty.getDesignation());
 
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, faculty.getUserName());
