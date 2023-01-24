@@ -16,7 +16,6 @@ import java.sql.SQLException;
 public class RegisterDaoImpl implements RegisterDao{
 
     private final Connection connection = DataBaseConnection.getDataBaseConnection();
-    private final UserDao userDao = (UserDao) Main.getApplicationContext().getBean("userDao");
 
     @Override
     public boolean registerStudent(Student student, String userName, String password) throws SQLException {

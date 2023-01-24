@@ -8,8 +8,6 @@ import lombok.*;
 @Setter
 @Getter
 public class AttendanceDetail {
-    private String courseID;
-    private int totalClassConducted;
-    private int totalClassPresent;
+    private AttendanceModel attendance;
     private String usn;
 }

@@ -49,20 +49,13 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean createUser(String userName, String password, Designation designation) throws SQLException, NoSuchAlgorithmException, InvalidKeySpecException {
-//        String query = "INSERT INTO USER VALUES(?, ?, ?, ?)";
-//        PreparedStatement preparedStatement = connection.prepareStatement(query);
-//        preparedStatement.setString(1, userName);
-//        preparedStatement.setString(2, designation.getValue());
-//        String[] encryption = createHashWithSalt(password);
-//        preparedStatement.setString(3, encryption[0]);
-//        preparedStatement.setString(4, encryption[1]);
-        String query  = "UPDATE USER SET SALT = ?, HASHED_VALUE = ? WHERE USERNAME = ?";
+        String query = "INSERT INTO USER VALUES(?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, userName);
+        preparedStatement.setString(2, designation.getValue());
         String[] encryption = createHashWithSalt(password);
-        preparedStatement.setBytes(1, encryption[0].getBytes());
-        preparedStatement.setString(2, encryption[1]);
-        System.out.println(encryption[0]);
-        preparedStatement.setString(3, userName);
+        preparedStatement.setString(3, encryption[0]);
+        preparedStatement.setString(4, encryption[1]);
         int result = preparedStatement.executeUpdate();
         return result != 0;
     }
