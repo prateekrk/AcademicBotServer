@@ -2,12 +2,22 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Dao beans-->
     <bean class="com.academicbot.dao.UserDao.UserDaoImpl" id="userDao"/>
     <bean class="com.academicbot.dao.registerDao.RegisterDaoImpl" id = "registerDao"/>
     <bean class="com.academicbot.dao.studentDao.StudentDaoImpl" id = "studentDao"/>
     <bean class="com.academicbot.dao.academicOperationsDao.facultyOperations.attendance.FacultyAttendanceImpl" id= "facultyAttendanceDao"/>
     <bean class="com.academicbot.dao.academicOperationsDao.facultyOperations.marks.FacultyMarksImpl" id= "facultyMarksDao"/>
-    <bean class="com.academicbot.dao.academicOperationsDao.studentOperations.attendance.StudentAttendanceImpl" id= "studentAttendanceDao"/>
     <bean class="com.academicbot.dao.academicOperationsDao.studentOperations.marks.StudentMarksDaoImpl" id= "studentMarksDao"/>
+    <bean class="com.academicbot.dao.academicOperationsDao.studentOperations.attendance.StudentAttendanceImpl" id= "studentAttendanceDao"/>
 
+    <!--Service beans-->
+    <bean class="com.academicbot.service.UserService.UserServiceImpl" id="userService"/>
+    <bean class="com.academicbot.service.RegisterService.RegisterServiceImpl" id = "registerService"/>
+    <bean class="com.academicbot.service.StudentService.StudentServiceImp" id = "studentServiceImp"/>
+    <bean class="com.academicbot.service.academicOperationsService.studentOperationService.attendance.StudentAttendanceServiceImpl" id= "studentAttendanceService"/>
+    <bean class="com.academicbot.service.academicOperationsService.studentOperationService.marks.StudentMarksServiceImpl" id= "studentMarksService"/>
+    <bean class="com.academicbot.service.academicOperationsService.facultyOperationService.attendance.FacultyAttendanceServiceImpl" id= "facultyAttendanceService"/>
+    <bean class="com.academicbot.service.academicOperationsService.facultyOperationService.marks.FacultyMarksServiceImpl" id= "facultyMarksService"/>
 </beans>

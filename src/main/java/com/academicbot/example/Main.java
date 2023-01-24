@@ -1,5 +1,6 @@
 package com.academicbot.example;
 
+import com.academicbot.Helpers.ApplicationContext;
 import com.academicbot.Helpers.Exceptions.LoginError;
 import com.academicbot.dao.UserDao.UserDao;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException, InvalidKeySpecException, NoSuchAlgorithmException {
-        AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("AcademicBotConfig.xml");
+        AbstractApplicationContext applicationContext = ApplicationContext.getContext();
         UserDao userDao = (UserDao) applicationContext.getBean("userDao");
         try {
             userDao.login("prateek.17cs@cmr.edu.in", "prtk33");
