@@ -9,7 +9,6 @@ import java.security.spec.InvalidKeySpecException;
 import java.sql.SQLException;
 
 public interface UserDao {
-
     User getUser(String userName) throws SQLException;
     boolean resetPassword(String password, String userName) throws  SQLException;
     boolean createUser(String userName, String password, Designation designation) throws SQLException, NoSuchAlgorithmException, InvalidKeySpecException;

@@ -15,7 +15,7 @@
     <!--Service beans-->
     <bean class="com.academicbot.service.UserService.UserServiceImpl" id="userService"/>
     <bean class="com.academicbot.service.RegisterService.RegisterServiceImpl" id = "registerService"/>
-    <bean class="com.academicbot.service.StudentService.StudentServiceImp" id = "studentServiceImp"/>
+    <bean class="com.academicbot.service.StudentService.StudentServiceImpl" id = "studentServiceImpl"/>
     <bean class="com.academicbot.service.academicOperationsService.studentOperationService.attendance.StudentAttendanceServiceImpl" id= "studentAttendanceService"/>
     <bean class="com.academicbot.service.academicOperationsService.studentOperationService.marks.StudentMarksServiceImpl" id= "studentMarksService"/>
     <bean class="com.academicbot.service.academicOperationsService.facultyOperationService.attendance.FacultyAttendanceServiceImpl" id= "facultyAttendanceService"/>
