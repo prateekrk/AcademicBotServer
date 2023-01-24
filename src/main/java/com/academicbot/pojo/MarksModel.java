@@ -11,4 +11,6 @@ public class MarksModel {
     private String courseId;
     private String usn;
     private double marks;
+    private String grade;
+    private double totalMarks;
 }

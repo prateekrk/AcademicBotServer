@@ -1,4 +1,4 @@
-package com.academicbot.dao.StudentDao;
+package com.academicbot.dao.studentDao;
 
 import com.academicbot.pojo.AdmissionDetail;
 import com.academicbot.pojo.NameModel;

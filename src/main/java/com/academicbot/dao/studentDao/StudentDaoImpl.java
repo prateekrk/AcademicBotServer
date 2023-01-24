@@ -1,10 +1,9 @@
-package com.academicbot.dao.StudentDao;
+package com.academicbot.dao.studentDao;
 
 import com.academicbot.Helpers.DataBaseConnection;
 import com.academicbot.pojo.AdmissionDetail;
 import com.academicbot.pojo.NameModel;
 import com.academicbot.pojo.Semester;
-import com.academicbot.pojo.Student;
 
 import java.sql.Connection;
 import java.sql.Date;

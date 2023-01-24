@@ -1,4 +1,4 @@
-package com.academicbot.dao.RegisterDao;
+package com.academicbot.dao.registerDao;
 
 import com.academicbot.pojo.Faculty;
 import com.academicbot.pojo.Student;
