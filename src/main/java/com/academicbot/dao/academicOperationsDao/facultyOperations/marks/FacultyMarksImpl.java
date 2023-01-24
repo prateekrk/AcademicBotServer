@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FacultyMarksImpl implements  FacultyMarksDao{
    private final Connection dataBaseConnection = DataBaseConnection.getDataBaseConnection();
@@ -27,19 +29,25 @@ public class FacultyMarksImpl implements  FacultyMarksDao{
     }
 
     @Override
-    public MarksModel fetchMarks(String usn) throws SQLException {
+    public List<MarksModel> fetchMarks(String usn) throws SQLException {
         String query = String.format("SELECT * FROM %s WHERE USN = ?", Tables.MARKS.getName());
 
         PreparedStatement preparedStatement = dataBaseConnection.prepareStatement(query);
+        return getMarksModels(preparedStatement);
+    }
+
+    private static List<MarksModel> getMarksModels(PreparedStatement preparedStatement) throws SQLException {
         ResultSet resultSet = preparedStatement.executeQuery();
-        MarksModel marksModel = new MarksModel();
+        List<MarksModel> marksModelList = new ArrayList<>();
         while(resultSet.next()) {
+            MarksModel marksModel = new MarksModel();
             marksModel.setUsn(resultSet.getString("USN"));
             marksModel.setCourseId(resultSet.getString("COURSE_ID"));
             marksModel.setMarks(resultSet.getDouble("MARKS"));
             marksModel.setTotalMarks(resultSet.getDouble("TOTAL_MARKS"));
+            marksModelList.add(marksModel);
         }
-        return marksModel;
+        return marksModelList;
     }
 
     @Override
@@ -54,5 +62,15 @@ public class FacultyMarksImpl implements  FacultyMarksDao{
         preparedStatement.setString(5, markedBy);
 
         return preparedStatement.executeUpdate() != 0;
+    }
+
+    @Override
+    public MarksModel fetchMarks(String usn, String courseId) throws SQLException {
+        String query = String.format("SELECT * FROM %s WHERE USN = ?, COURSE_ID = ?", Tables.MARKS.getName());
+
+        PreparedStatement preparedStatement = dataBaseConnection.prepareStatement(query);
+        preparedStatement.setString(1, usn);
+        preparedStatement.setString(2, courseId);
+       return getMarksModels(preparedStatement).get(0);
     }
 }

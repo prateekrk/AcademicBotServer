@@ -1,8 +1,12 @@
 package com.academicbot.dao.academicOperationsDao.studentOperations.attendance;
 
+import com.academicbot.pojo.AttendanceModel;
+
 import java.sql.SQLException;
+import java.util.List;
 
 public interface StudentAttendanceDao {
-    boolean fetchAttendance(String usn, String courseID) throws SQLException;
+    AttendanceModel fetchAttendance(String usn, String courseID) throws SQLException;
+    List<AttendanceModel> fetchAttendance(String usn) throws  SQLException;
 
 }
